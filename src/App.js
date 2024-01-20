@@ -1,47 +1,46 @@
 import './App.css';
 import React from 'react';
+import {CalcButton, handleNumber, handleOperator, renderDisplay, handleClear} from './myFunctions.js';
 
 
 function App() {
 
-  const [display, setDisplay] = React.useState(0);
-  function handleNumber(value){
-    alert('handle number click: ' + value);
-    setDisplay(value);
-  }
-  
-  function handleOperator(){}
-
-  function CalcButton(props){
-    return <button className={props.className} onClick={props.onClick(props.value)}>{props.value}</button>
-  }
+  const [calc, setCalc] = React.useState({
+    current: "0",
+    total:"0",
+    isInitial: true,
+    preOp: ""
+  });
   
   return (
-    <div className="calculator">
+    <div className='calc-container'>
+      <div className="calculator">
 
-      <div className="display">{display}</div>
+        <div className="display">{renderDisplay(calc, setCalc)}</div>
 
-      <CalcButton value="7" onClick={handleNumber}/>
-      <CalcButton value="8" onClick={handleNumber}/>
-      <CalcButton value="9" onClick={handleNumber}/>
-      <CalcButton className="operator" onClick={handleOperator} value="/" />
+        <CalcButton value="7" onClick={() => handleNumber("7", calc, setCalc)}/>
+        <CalcButton value="8" onClick={() => handleNumber("8", calc, setCalc)}/>
+        <CalcButton value="9" onClick={() => handleNumber("9", calc, setCalc)}/>
+        <CalcButton className="operator" value="/" onClick={() => handleOperator("/", calc, setCalc)} />
 
-      <CalcButton value="4" onClick={handleNumber}/>
-      <CalcButton value="5" onClick={handleNumber}/>
-      <CalcButton value="6" onClick={handleNumber}/>
-      <CalcButton className="operator" onClick={handleOperator} value="*" />
+        <CalcButton value="4" onClick={() => handleNumber("4", calc, setCalc)}/>
+        <CalcButton value="5" onClick={() => handleNumber("5", calc, setCalc)}/>
+        <CalcButton value="6" onClick={() => handleNumber("6", calc, setCalc)}/>
+        <CalcButton className="operator" value="*" onClick={() => handleOperator("*", calc, setCalc)} />
 
-      <CalcButton value="1" onClick={handleNumber}/>
-      <CalcButton value="2" onClick={handleNumber}/>
-      <CalcButton value="3" onClick={handleNumber}/>
-      <CalcButton className="operator" onClick={handleOperator} value="-" />
+        <CalcButton value="1" onClick={() => handleNumber("1", calc, setCalc)}/>
+        <CalcButton value="2" onClick={() => handleNumber("2", calc, setCalc)}/>
+        <CalcButton value="3" onClick={() => handleNumber("3", calc, setCalc)}/>
+        <CalcButton className="operator" value="-" onClick={() => handleOperator("-", calc, setCalc)} />
 
-      <CalcButton value="C" />
-      <CalcButton value="0" onClick={handleNumber}/>
-      <CalcButton value="=" onClick={handleOperator}/>
-      <CalcButton className="operator" onClick={handleOperator} value="+" />
+        <CalcButton className='clear' value="C" onClick={() => handleClear(calc, setCalc)}/>
+        <CalcButton value="0" onClick={() => handleNumber("0", calc, setCalc)}/>
+        <CalcButton value="=" onClick={() => handleOperator("=", calc, setCalc)}/>
+        <CalcButton className="operator" value="+" onClick={() => handleOperator("+", calc, setCalc)} />
+      </div>
+
     </div>
-  );
+    );    
 }
 
 export default App;
