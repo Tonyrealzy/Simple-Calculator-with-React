@@ -56,7 +56,7 @@ export function CalcButton(props){
 
 
   export function renderDisplay (calc, setCalc) {
-    return calc.current;
+    return <div className="display">{calc.current}</div>;
   }
 
 
