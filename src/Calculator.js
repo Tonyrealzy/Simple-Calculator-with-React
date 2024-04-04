@@ -66,28 +66,34 @@ function Calculator() {
   }
 
   return (
-    <div className="calculator">
+    <div>
+
+      <div className="calculator">
       <section className='display'>{renderDisplay()}</section>
 
-      <CalcButton value="7" onClick={handleNumber}></CalcButton>
-      <CalcButton value="8" onClick={handleNumber}></CalcButton>
-      <CalcButton value="9" onClick={handleNumber}></CalcButton>
-      <CalcButton className='operator' value="/" onClick={handleOperator}></CalcButton>
+      <section className='buttonSection'>
+        <CalcButton value="7" onClick={handleNumber}></CalcButton>
+        <CalcButton value="8" onClick={handleNumber}></CalcButton>
+        <CalcButton value="9" onClick={handleNumber}></CalcButton>
+        <CalcButton className='operator' value="/" onClick={handleOperator}></CalcButton>
 
-      <CalcButton value="4" onClick={handleNumber}></CalcButton>
-      <CalcButton value="5" onClick={handleNumber}></CalcButton>
-      <CalcButton value="6" onClick={handleNumber}></CalcButton>
-      <CalcButton className='operator' value="*" onClick={handleOperator}></CalcButton>
+        <CalcButton value="4" onClick={handleNumber}></CalcButton>
+        <CalcButton value="5" onClick={handleNumber}></CalcButton>
+        <CalcButton value="6" onClick={handleNumber}></CalcButton>
+        <CalcButton className='operator' value="*" onClick={handleOperator}></CalcButton>
 
-      <CalcButton value="1" onClick={handleNumber}></CalcButton>
-      <CalcButton value="2" onClick={handleNumber}></CalcButton>
-      <CalcButton value="3" onClick={handleNumber}></CalcButton>
-      <CalcButton className='operator' value="-" onClick={handleOperator}></CalcButton>
+        <CalcButton value="1" onClick={handleNumber}></CalcButton>
+        <CalcButton value="2" onClick={handleNumber}></CalcButton>
+        <CalcButton value="3" onClick={handleNumber}></CalcButton>
+        <CalcButton className='operator' value="-" onClick={handleOperator}></CalcButton>
 
-      <CalcButton value="C" onClick={clearScreen}></CalcButton>
-      <CalcButton value="0" onClick={handleNumber}></CalcButton>
-      <CalcButton  className='operator' value="=" onClick={renderResult}></CalcButton>
-      <CalcButton className='operator' value="+" onClick={handleOperator}></CalcButton>
+        <CalcButton  className='operator'value="C" onClick={clearScreen}></CalcButton>
+        <CalcButton value="0" onClick={handleNumber}></CalcButton>
+        <CalcButton  className='operator' value="=" onClick={renderResult}></CalcButton>
+        <CalcButton className='operator' value="+" onClick={handleOperator}></CalcButton>
+      </section>
+      </div>
+
     </div>
   );
 }
