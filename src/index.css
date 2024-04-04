@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.appContainer {
+  width: 40%;
+  height: 65%;
+  border-radius: 200px;
+  margin: 5vh auto;
+}
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 12vh);
+}
+
+button {
+  height: 12vh;
+  width: 12vh;
+  border: none;
+  font-size: 3vh;
+  color: white;
+  background-color: black;
+  padding-bottom: 4vh;
+}
+.operator {
+  color:coral;
+}
+.display {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  height: 10vh;
+  font-size: 7vh;
+  color: white;
+  padding-top: 18vh;
+  padding-bottom: 18vh;
+  padding-right: 15px;
+  text-align: right;
+  background-color: black;
+}
